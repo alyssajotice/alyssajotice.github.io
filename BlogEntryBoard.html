@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Baker Bootstrap Theme</title>
+    <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
+    <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+    
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,300|Raleway:300,400,900,700italic,700,300,600">
+    <link rel="stylesheet" type="text/css" href="BlogEntryBoard Files/css/jquery.bxslider.css">
+    <link rel="stylesheet" type="text/css" href="BlogEntryBoard Files/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="BlogEntryBoard Files/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="BlogEntryBoard Files/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="BlogEntryBoard Files/css/style.css">
+    <!-- =======================================================
+        Theme Name: Baker
+        Theme URL: https://bootstrapmade.com/baker-free-onepage-bootstrap-theme/
+        Author: BootstrapMade.com
+        Author URL: https://bootstrapmade.com
+    ======================================================= -->
+  </head>
+  <body>
+
+    <div class="loader"></div>
+    <div id="myDiv">
+    
+
+
+    <!--HEADER-->
+    <div class="header">
+      <div class="bg-color">
+        <header id="main-header">
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/Users/alyssajotice/Desktop/Baker1/index.html">Alyssa Jo<span class="logo-dec"> Tice</span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav navbar-right">
+                
+                <li class=""><a href="/Users/alyssajotice/Desktop/Baker1/index.html">Home</a></li>
+
+                <li class=""><a href="/Users/alyssajotice/Desktop/Baker1/AboutMePage.html">About Me</a></li>
+
+                <li class=""><a href="/Users/alyssajotice/Desktop/Baker1/ResumePage.html">Resume</a></li>
+
+                <li class=""><a href="/Users/alyssajotice/Desktop/Baker1/ProgrammingPage.html">Programming</a></li>
+
+                 <!--     <li class=""><a href="#testimonial">Writing</a></li> -->
+
+                <li class="active"><a href="/Users/alyssajotice/Desktop/Baker1/BlogPage.html">Blog</a></li>
+              
+
+
+              </ul>
+            </div>
+          </div>
+        </nav>
+        </header>
+        
+
+
+        <div class="wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="banner-info text-center wow fadeIn delay-05s">
+              <h1 class="bnr-title">MIDI Sound Board<span></span></h1>
+              <p class="bnr-para">
+
+                  Spring 2017
+                  </p>
+
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+       <section id="testimonial" class="wow">
+      <div class="t1">
+        <div class="container section-padding">
+        <div class="row">
+          
+              <p class = "text-left">
+              One of the classes I took during freshman year was MUSIC 452, a class where I learned the programming language SuperCollider. SuperCollider is a language that "uses a servor for real-time audio synthesis and algorithm composition." One of my passions is music, and this was one of the classes that I took to count towards my minor in Music Technology. Throughout the class, I learned about synthesis composition and the different types of waves that engineers use to create the sounds we hear in music today. </p>
+
+
+              <p class = "text-left">
+              The class ended with a capstone project that could be about whatever we wanted. I decided to use a Korg Nantokontroll2 (pictured below) to control different aspects of synths that I had coded. There are nine different control sections on the board, so I decided to use nine different synths in the project. The top dial would control the length of the sound. This got a little bit tricky because I had to be sure that shortening the sound wouldn't get rid of a characteristic part of the sound, such as the decay or release portion. The slider in the center of the board was programmed to change the volume of the sound, which wasn't that difficult. Lastly, the buttons to the left of the slider controlled which synth was selected, so each slider controlled a specific synth. <br>
+              </p>
+
+
+              <center>
+              <img src = "/Users/alyssajotice/Desktop/Website/Baker/Pictures/Korg.jpeg" width = "700" height = "200" alt = "Nano Kontroll2"> 
+              </center>
+
+              <p class = "text-left"> <br>
+              The synths I created for this project included as follows: red cedar wood plate, trumpet, reverb, bells, vibraphone, guitar, laser, vibrato, and flute. After creating all of these, I had to make sure they had the appropriate parameters so that their volume and length could be changed. Once all of those were complete, I had to get all of the MIDI data to work together.
+              </p>
+
+
+              <p class = "text-left">
+              The notes needed a way to be played, so I added a MIDI keyboard to the setup for more control. First, I set up the synths to work with the keyboard (pictured below). Just like a piano, the keys play different notes that come out at the correct frequency, but sound like the synths listed above. <br>
+              </p>
+
+              <center>
+              <img src = "/Users/alyssajotice/Desktop/Website/Baker/Pictures/midi1.png" width = "600" height = "200" alt = "MIDI Keyboard"> 
+              </center>
+
+              <p class = "text-left"> <br>
+              The first thing I did was create global variables to hold the inputs on the sound board. The sound board data came in the form of MIDI signals, with a bus number for identification and a value in the range 0-127. 
+
+              <br>
+              <br>
+
+              One of the biggest challenges I faced was getting the input data to line up with my code. I originally did the variable assignments by using subtraction and modular division for a range of busses, but I learned the hard way that certain bus numbers are reserved for things like master volume. To keep things clear and correct, I had to assign all of the values manually. I made a 9x2 array that held the current settings for each of the 9 synths controlled by the board. Then, when a button was pressed, that synth would be assigned to a global variable called "currentSynth". When a key on the keyboard was pressed, if statements were used to figure out which synth needed to be played. 
+
+            
+
+
+              
+
+              <br>
+              <br>
+
+              SuperCollider can be very tempermental with the order in which things are initialized, because everything is run by a live server. The most frustrating part was having to shut down the servor and restart everything when I wanted to retest a change in my code. I ended up writing out the exact sequence of initializations for the global variables so that it worked properly each time. Overall, this project had some challenges that I had never faced before, but I learned a lot and ended up with a <a href = "https://github.com/alyssajotice/MIDISoundBoard" >really cool end product. </a>
+
+
+
+
+
+              </p>
+
+  
+        </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!---->
+    <footer id="footer">
+      <div class="container">
+        <div class="row text-center">
+          <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>&copy; Baker Theme. All Rights Reserved.</p>
+          <div class="credits">
+            <!-- 
+                All the links in the footer should remain intact. 
+                You can delete the links only if you purchased the pro version.
+                Licensing information: https://bootstrapmade.com/license/
+                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Baker
+            -->
+            Designed  by <a href="https://bootstrapmade.com/">Bootstrap Themes</a>
+        </div>
+        </div>
+      </div>
+    </footer>
+    <!---->
+  </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/jquery.bxslider.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="contactform/contactform.js"></script>
+    
+  </body>
+</html>
